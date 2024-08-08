@@ -1,0 +1,28 @@
+Hello netlanders,
+
+Due to a project I'm working on (in minix), I'm interested in the posix
+standard definition. Could somebody please point me to a (preferably)
+machine-readable format of the latest posix rules? Ftp-sites would be
+nice.
+
+As an aside for all using gcc on minix - the new version (1.40) has been
+out for some weeks, and I decided to test what needed to be done to get
+it working on minix (1.37.1, which is the version you can get from
+plains is nice, but 1.40 is better :-). To my surpice, the answer
+turned out to be - NOTHING! Gcc-1.40 compiles as-is on minix386 (with
+old gcc-1.37.1), with no need to change source files (I changed the
+Makefile and some paths, but that's it!). As default this results in a
+compiler that uses floating point insns, but if you'd rather not,
+changing 'toplev.c' to define DEFAULT_TARGET from 1 to 0 (this is from
+memory - I'm not at my minix-box) will handle that too. Don't make the
+libs, use the old gnulib&libc.a. I have successfully compiled 1.40 with
+itself, and everything works fine (I got the newest versions of gas and
+binutils at the same time, as I've heard of bugs with older versions of
+ld.c). Makefile needs some chmem's (and gcc2minix if you're still using
+it).
+
+Linus Torvalds torvalds@kruuna.helsinki.fi
+
+PS. Could someone please try to finger me from overseas, as I've
+installed a "changing .plan" (made by your's truly), and I'm not certain
+it works from outside? It should report a new .plan every time.

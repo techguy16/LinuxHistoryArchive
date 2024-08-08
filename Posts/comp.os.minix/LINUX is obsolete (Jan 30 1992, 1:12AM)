@@ -1,0 +1,75 @@
+I was in the U.S. for a couple of weeks, so I haven't commented much on
+LINUX (not that I would have said much had I been around), but for what
+it is worth, I have a couple of comments now.
+
+As most of you know, for me MINIX is a hobby, something that I do in the
+evening when I get bored writing books and there are no major wars,
+revolutions, or senate hearings being televised live on CNN. My real
+job is a professor and researcher in the area of operating systems.
+
+As a result of my occupation, I think I know a bit about where operating
+are going in the next decade or so. Two aspects stand out:
+
+1. MICROKERNEL VS MONOLITHIC SYSTEM
+Most older operating systems are monolithic, that is, the whole operating
+system is a single a.out file that runs in 'kernel mode.' This binary
+contains the process management, memory management, file system and the
+rest. Examples of such systems are UNIX, MS-DOS, VMS, MVS, OS/360,
+MULTICS, and many more.
+
+The alternative is a microkernel-based system, in which most of the OS
+runs as separate processes, mostly outside the kernel. They communicate
+by message passing. The kernel's job is to handle the message passing,
+interrupt handling, low-level process management, and possibly the I/O.
+Examples of this design are the RC4000, Amoeba, Chorus, Mach, and the
+not-yet-released Windows/NT.
+
+While I could go into a long story here about the relative merits of the
+two designs, suffice it to say that among the people who actually design
+operating systems, the debate is essentially over. Microkernels have won.
+The only real argument for monolithic systems was performance, and there
+is now enough evidence showing that microkernel systems can be just as
+fast as monolithic systems (e.g., Rick Rashid has published papers comparing
+Mach 3.0 to monolithic systems) that it is now all over but the shoutin`.
+
+MINIX is a microkernel-based system. The file system and memory management
+are separate processes, running outside the kernel. The I/O drivers are
+also separate processes (in the kernel, but only because the brain-dead
+nature of the Intel CPUs makes that difficult to do otherwise). LINUX is
+a monolithic style system. This is a giant step back into the 1970s.
+That is like taking an existing, working C program and rewriting it in
+BASIC. To me, writing a monolithic system in 1991 is a truly poor idea.
+
+
+2. PORTABILITY
+Once upon a time there was the 4004 CPU. When it grew up it became an
+8008. Then it underwent plastic surgery and became the 8080. It begat
+the 8086, which begat the 8088, which begat the 80286, which begat the
+80386, which begat the 80486, and so on unto the N-th generation. In
+the meantime, RISC chips happened, and some of them are running at over
+100 MIPS. Speeds of 200 MIPS and more are likely in the coming years.
+These things are not going to suddenly vanish. What is going to happen
+is that they will gradually take over from the 80x86 line. They will
+run old MS-DOS programs by interpreting the 80386 in software. (I even
+wrote my own IBM PC simulator in C, which you can get by FTP from
+ftp.cs.vu.nl = 192.31.231.42 in dir minix/simulator.) I think it is a
+gross error to design an OS for any specific architecture, since that is
+not going to be around all that long.
+
+MINIX was designed to be reasonably portable, and has been ported from the
+Intel line to the 680x0 (Atari, Amiga, Macintosh), SPARC, and NS32016.
+LINUX is tied fairly closely to the 80x86. Not the way to go.
+
+Don`t get me wrong, I am not unhappy with LINUX. It will get all the people
+who want to turn MINIX in BSD UNIX off my back. But in all honesty, I would
+suggest that people who want a **MODERN** "free" OS look around for a
+microkernel-based, portable OS, like maybe GNU or something like that.
+
+
+Andy Tanenbaum (ast@cs.vu.nl)
+
+
+P.S. Just as a random aside, Amoeba has a UNIX emulator (running in user
+space), but it is far from complete. If there are any people who would
+like to work on that, please let me know. To run Amoeba you need a few 386s,
+one of which needs 16M, and all of which need the WD Ethernet card.

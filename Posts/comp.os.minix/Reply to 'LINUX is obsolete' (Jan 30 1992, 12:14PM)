@@ -1,0 +1,92 @@
+Well, with a subject like this, I'm afraid I'll have to reply.
+Apologies to minix-users who have heard enough about linux anyway. I'd
+like to be able to just "ignore the bait", but ... Time for some
+serious flamefesting!
+
+In article <12...@star.cs.vu.nl> ast@cs.vu.nl (Andy Tanenbaum) writes:
+>
+
+>I was in the U.S. for a couple of weeks, so I haven't commented much on
+>LINUX (not that I would have said much had I been around), but for what
+>it is worth, I have a couple of comments now.
+>
+>As most of you know, for me MINIX is a hobby, something that I do in the
+>evening when I get bored writing books and there are no major wars,
+>revolutions, or senate hearings being televised live on CNN. My real
+>job is a professor and researcher in the area of operating systems.
+
+You use this as an excuse for the limitations of minix? Sorry, but you
+loose: I've got more excuses than you have, and linux still beats the
+pants of minix in almost all areas. Not to mention the fact that most
+of the good code for PC minix seems to have been written by Bruce Evans.
+
+Re 1: you doing minix as a hobby - look at who makes money off minix,
+and who gives linux out for free. Then talk about hobbies. Make minix
+freely available, and one of my biggest gripes with it will disappear.
+Linux has very much been a hobby (but a serious one: the best type) for
+me: I get no money for it, and it's not even part of any of my studies
+in the university. I've done it all on my own time, and on my own
+machine.
+
+Re 2: your job is being a professor and researcher: That's one hell of a
+good excuse for some of the brain-damages of minix. I can only hope (and
+assume) that Amoeba doesn't suck like minix does.
+
+>1. MICROKERNEL VS MONOLITHIC SYSTEM
+
+True, linux is monolithic, and I agree that microkernels are nicer. With
+a less argumentative subject, I'd probably have agreed with most of what
+you said. From a theoretical (and aesthetical) standpoint linux looses.
+If the GNU kernel had been ready last spring, I'd not have bothered to
+even start my project: the fact is that it wasn't and still isn't. Linux
+wins heavily on points of being available now.
+
+> MINIX is a microkernel-based system. [deleted, but not so that you
+> miss the point ] LINUX is a monolithic style system.
+
+If this was the only criterion for the "goodness" of a kernel, you'd be
+right. What you don't mention is that minix doesn't do the micro-kernel
+thing very well, and has problems with real multitasking (in the
+kernel). If I had made an OS that had problems with a multithreading
+filesystem, I wouldn't be so fast to condemn others: in fact, I'd do my
+damndest to make others forget about the fiasco.
+
+[ yes, I know there are multithreading hacks for minix, but they are
+hacks, and bruce evans tells me there are lots of race conditions ]
+
+>2. PORTABILITY
+
+"Portability is for people who cannot write new programs"
+-me, right now (with tongue in cheek)
+
+The fact is that linux is more portable than minix. What? I hear you
+say. It's true - but not in the sense that ast means: I made linux as
+conformant to standards as I knew how (without having any POSIX standard
+in front of me). Porting things to linux is generally /much/ easier
+than porting them to minix.
+
+I agree that portability is a good thing: but only where it actually has
+some meaning. There is no idea in trying to make an operating system
+overly portable: adhering to a portable API is good enough. The very
+/idea/ of an operating system is to use the hardware features, and hide
+them behind a layer of high-level calls. That is exactly what linux
+does: it just uses a bigger subset of the 386 features than other
+kernels seem to do. Of course this makes the kernel proper unportable,
+but it also makes for a /much/ simpler design. An acceptable trade-off,
+and one that made linux possible in the first place.
+
+I also agree that linux takes the non-portability to an extreme: I got
+my 386 last January, and linux was partly a project to teach me about
+it. Many things should have been done more portably if it would have
+been a real project. I'm not making overly many excuses about it
+though: it was a design decision, and last april when I started the
+thing, I didn't think anybody would actually want to use it. I'm happy
+to report I was wrong, and as my source is freely available, anybody is
+free to try to port it, even though it won't be easy.
+
+Linus
+
+PS. I apologise for sometimes sounding too harsh: minix is nice enough
+if you have nothing else. Amoeba might be nice if you have 5-10 spare
+386's lying around, but I certainly don't. I don't usually get into
+flames, but I'm touchy when it comes to linux :)
